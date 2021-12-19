@@ -1,0 +1,58 @@
+#######此部署指导需在导入期环境基础上操作#######
+1、将代码包解压至${ wt.home }/deploy目录，相同文件覆盖替换。
+2、进入windchill shell，在${ wt.home }目录下执行 ant。
+3、注册客制化模型
+	3.1、将以下内容添加至${ wt.home }/codebase/associationRegistry.properties文件中:
+		#借阅相关
+		wt.fc.WTObject=ext.wis.borrow.model.BorrowObjectLink
+		ext.wis.borrow.model.BorrowOrder=ext.wis.borrow.model.BorrowObjectLink
+		#随签对象
+		wt.vc.Versioned=ext.wis.bom.model.ReviewItemLink
+		#打印申请
+		wt.content.ContentHolder=ext.wis.printapply.model.PrintObjectApplyLink
+		wt.doc.WTDocumentMaster=ext.wis.printapply.model.PrintObjectApplyLink
+	3.2、将以下内容添加至${ wt.home }/codebase/descendentRegistry.properties文件中:
+		#打印申请相关
+		wt.fc.ObjectToObjectLink=ext.wis.printapply.model.PrintObjectApplyLink
+		#借阅相关
+		wt.fc.WTObject=ext.wis.borrow.model.BorrowOrder
+		wt.lifecycle.LifeCycleManaged=ext.wis.borrow.model.BorrowOrder
+		wt.ownership.Ownable=ext.wis.borrow.model.BorrowOrder
+		wt.type.Typed=ext.wis.borrow.model.BorrowOrder
+		wt.fc.ObjectToObjectLink=ext.wis.borrow.model.BorrowObjectLink
+		#文档编码序列
+		wt.fc.WTObject=ext.wis.doc.model.NumberSequenceRecord
+		#随签对象
+		wt.vc.VersionToVersionLink=ext.wis.bom.model.ReviewItemLink
+	3.3、将以下内容添加至${ wt.home }/codebase/modelRegistry.properties文件中:
+		#打印申请相关
+		ext.wis.printapply.model=PrintObjectApplyLink
+		#借阅相关
+		ext.wis.borrow.model=BorrowOrder
+		ext.wis.borrow.model=BorrowObjectLink
+		#文档编码序列
+		ext.wis.doc.model=NumberSequenceRecord
+		#随签对象
+		ext.wis.bom.model=ReviewItemLink
+4、进入windchill shell，在${ wt.home }/db/sql3目录下用sqlplus登陆数据库，并执行:
+	@wisModel2.sql
+5、执行xconfmanager --add com.ptc.core.meta.descriptor.server.impl.includeClassStartsWith=ext.wis. -p 并重启Windchill服务
+6、导入类型属性，进入windchill shell 并执行：
+	windchill wt.load.LoadFileSet -file loadFiles/ext/wis/typeloadSet2.xml  -Unattended -NoServerStop -u wcadmin -p wcadmin
+7、导入任务表单模板，进入windchill shell 并执行：
+	windchill wt.load.LoadFromFile -d loadFiles/ext/wis/custTaskFormTemplates2.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+8、导入工作流、生命周期、对象初始化规则，进入windchill shell 并执行：
+	windchill wt.load.LoadFileSet -file loadFiles/ext/wis/loadSet2.xml  -Unattended -NoServerStop -u wcadmin -p wcadmin
+9、进入文档模板库，在OFFICE模板文件夹下，通过"loadFiles/ext/wis/文档模板库/office文件模板/报表模板.zip"压缩包创建文档模板(请勿更改文件名)
+10、首选项配置
+	首选项--操作--上载操作--编号参数--图号
+	首选项--操作--上载操作--名称去除文件扩展名--是
+	首选项--操作--自动关联--自动关联编号参数--图号
+	首选项--操作--自动关联--自动关联	操作截断编号的文件拓展名--是		
+	首选项--操作--自动关联--自动关联	操作截断名称的文件拓展名--是		
+	首选项--部件管理--部件到文档关联逻辑--是	
+11、策略增加：
+	策略添加   站点 /System  ----团队(Team)-全部-读取；修改权限
+	策略增加  /Default/PDM ---衍生图像 --全部--全部--读取,下载,修改,修改内容
+	策略增加  /Default/PDM ---CAD 文档 --全部--机械设计师--下载
+	

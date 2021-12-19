@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
+           xmlns:jws="http://java.sun.com/xml/ns/javaee"
+           version="2.0">
+   	<endpoint implementation="ext.wis.webservice.javaxjws.WISService"
+             name="WISService"
+             url-pattern="/servlet/WISService">
+		    <jws:handler-chains>
+	    	   <jws:handler-chain>
+	         	<jws:handler>
+					 <jws:handler-class>com.ptc.jws.security.impl.WebServerAuthenticated</jws:handler-class>
+	            </jws:handler>
+	         </jws:handler-chain>
+      </jws:handler-chains>
+	  </endpoint>
+</endpoints>

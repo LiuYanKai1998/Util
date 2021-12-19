@@ -1,0 +1,17 @@
+<?xml version="1.0" ?><!DOCTYPE NmLoader SYSTEM "standardX24.dtd">
+<NmLoader>
+<csvGroup handler="wt.load.LoadUser.createGroup" >
+    <csvuser></csvuser>
+    <csvgroupName>慧领科技</csvgroupName>
+    <csvdescription></csvdescription>
+    <csvDirectoryService></csvDirectoryService>
+</csvGroup>
+
+<csvGroup handler="wt.load.LoadUser.createGroup" >
+    <csvuser></csvuser>
+    <csvgroupName>售后服务部</csvgroupName>
+    <csvdescription></csvdescription>
+    <csvDirectoryService></csvDirectoryService>
+</csvGroup>
+
+</NmLoader>

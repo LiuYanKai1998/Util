@@ -1,0 +1,111 @@
+	<include href="config/actions/ext/people-actions.xml"/>
+
+	<!-- objecttype节点,对客制化的菜单进行分类,listofactions下可以有多个objecttype节点 -->
+	<!--objecttype name属性:自定义值,不与其他objecttype节点里的name相同即可  -->
+	<!--objecttype resourceBundle属性:国际化文件的完整路径,java类,里面定义了菜单的显示文字、获得焦点的文字、图标、点击后弹出页面的大小等  -->
+	<!-- action name属性:菜单的名称(key)自行定义,同一个objecttype下,各action的name不相同 -->
+	<!-- shortcut="true" 表示菜单在工具栏直接显示,不隐藏到操作里 -->
+	<!-- command class属性:点击菜单后台要执行的java类,如果菜单对应的是一个页面,则无需定义 -->
+	<!-- command method属性:点击菜单后台要执行的java类对应的方法,固定值execute -->
+	<!-- command windowType属性:若菜单对应的为页面,值为page表示点击后在当前页面打开,值为popup,表示在新页面打开;若菜单对应的为后台class,windowType值设置为normal-->
+	<!-- command url属性:指向菜单对应的页面地址,路径从/netmarkets/jsp开始即可,可为空-->
+	<objecttype name="wis" resourceBundle="ext.wisplm.demo.resources.CustomOperationRB">
+		<!--提交审阅-->
+		<action name="submit" shortcut="true" >
+			<command class="" method="" windowType="popup" url="/netmarkets/jsp/ext/wisplm/demo/submit.jsp"/>
+			<!-- 菜单操作过滤器,name的值为在xconf文件中注册的过滤器处理类的key,查看site.xconf_add(过滤器配置)-->
+			<includeFilter name="SubmitFilter" />
+		</action>
+		<!--设置状态-->
+		<action name="SetState" shortcut="true" >
+			<command class="ext.wisplm.demo.part.processor.SetStateProcessor" method="execute" windowType="normal"/>
+			<includeFilter name="SetStateFilter" />
+		</action>
+
+		<!--下载文件-->
+		<action name="downloadFile" shortcut="true" >
+			<command class="ext.wisplm.demo.part.processor.DownloadFileProcessor" method="download" windowType="normal"/>
+		</action>
+				
+		<!--搜索部件-->
+		<action name="searchPart">
+			<command class="" method="" windowType="popup" url="/netmarkets/jsp/ext/wisplm/demo/part/searchPart.jsp"/>
+		</action>
+		
+		<!-- wizard action -->
+		<action name="wizard">
+			<command class="ext.wisplm.demo.wizard.processor.WizardProcessor" method="execute" windowType="popup" url="/netmarkets/jsp/ext/wisplm/demo/wizard/wizard.jsp"/>
+		</action>
+		<!--每一步的wizard无需定义processorDelegate,若定义:则processor执行顺序为1wizar-2wizardStep1-3wizardStep2-4wizardStep3,在点击完成时统一执行,每个processor里都可以获取所有页面的参数-->
+		<action name="wizardStep1">
+			<command class="ext.wisplm.demo.wizard.processor.WizardStep1Processor" method="execute" windowType="wizard_step" url="/netmarkets/jsp/ext/wisplm/demo/wizard/wizardStep1.jsp"/>
+		</action>
+		<action name="wizardStep2">
+			<command windowType="wizard_step" url="/netmarkets/jsp/ext/wisplm/demo/wizard/wizardStep2.jsp"/>
+		</action>
+		<action name="wizardStep3">
+			<command windowType="wizard_step" url="/netmarkets/jsp/ext/wisplm/demo/wizard/wizardStep3.jsp"/>
+		</action>	
+	</objecttype>
+	
+<objecttype name="employee" resourceBundle="ext.wis.resource.EmployeeRB">
+	<action name="employeeReport">
+		<command windowType="page"
+			url="/netmarkets/jsp/ext/wis/employee/report/employeeReport.jsp"
+			class="netmarkets" method="servlet/Navigation"/>
+	</action>
+
+	<action name="basicInfoManagement">
+		<command class="" method="" windowType="popup" url="/ptc1/ext/wis/employee/report/searchEmployee"/>
+		<includeFilter name="EmployeeManagementFilter" />
+	</action>
+	
+	<action name="createEmployeeWizard">
+		<command class="ext.wis.employee.processor.CreateEmployeeWizardProcessor" method="execute" windowType="popup" url="/netmarkets/jsp/ext/wis/employee/createEmployeeWizard.jsp"/>
+	</action>
+	
+	<action name="createEmployeeWizardStep">
+		<command class="" method="" windowType="wizard_step" url="/netmarkets/jsp/ext/wis/employee/createEmployeeWizardStep.jsp"/>
+	</action>
+	
+	<!--删除员工-->
+	<action name="deleteEmployee">
+		<command class="ext.wis.employee.processor.DeleteEmployeeProcessor" 
+				 method="deleteEmployee" 
+				 windowType="normal"/>
+	</action>
+	
+</objecttype>
+
+<objecttype name="bom" resourceBundle="ext.wis.resource.BomRB">
+	<!--提交审阅-->
+	<action name="submitReviewEBOM" shortcut="true" >
+		<command class="ext.wis.ebom.processor.SubmitReviewEBOMProcessor" method="execute" windowType="normal" url=""/>
+		<!-- 菜单操作过滤器,name的值为在xconf文件中注册的过滤器处理类的key,查看site.xconf_add(过滤器配置)-->
+		<includeFilter name="SubmitReviewEBOMFilter" />
+	</action>
+		
+	<!--下载EBOM清册-->
+	<action name="downloadEBOMList">
+		<command class="ext.wis.ebom.processor.DownloadEBOMListProcessor" method="download" windowType="normal"/>
+		<includeFilter name="DownloadEBOMListFilter" />
+	</action>
+	
+		<!--下载EBOM数模-->
+	<action name="downloadEBOMModel">
+		<command class="ext.wis.ebom.processor.DownloadEBOMModelProcessor" method="download" windowType="normal"/>
+		<includeFilter name="DownloadEBOMListFilter" />
+	</action>
+	
+		<!--查看EBOM结构-->
+	<action name="viewEBOM" shortcut="true" >
+		<command class="" method="" windowType="popup" url="/netmarkets/jsp/ext/wis/part/viewEBOM.jsp"/>
+		<includeFilter name="SubmitReviewEBOMFilter" />
+	</action>
+</objecttype>
+	<!--完成任务form处理类-->
+   <objecttype name="work" class="wt.workflow.work.WorkItem">
+      <action name="complete" enabledwhensuspended="true" ajax="row">
+         <command class="ext.wis.workflow.WISNmWorkItemCommands" method="complete" onClick="EnableTextBox()"/>
+      </action>
+   </objecttype>

@@ -1,0 +1,59 @@
+说明：
+	1、只有安装了Windchill Information Modeler(linux和unix环境下无法安装)模块才能进行持久化对象建模;
+	2、windchill shell中执行windchill version命令查看已安装模块。
+一、编写模型java文件
+-----------------------------Windchill系统中进行编译-----------------------------
+二、编译java模型并生成class文件
+	1、拷贝Pet.java到Windchill src下对应目录
+	2、Windchillshell中执行
+	ant -f bin/tools.xml class -Dclass.includes=ext/wisplm/demo/part/model/Pet.java
+	(可为*,表示编译model下所有java模型)
+	执行完毕,系统生成以下文件:
+	1、src_gen/ext/wisplm/demo/part/model/_Pet.java  
+	2、codebase同目录下生成了Pet.class,_Pet.class,Pet.ser
+	3、codebase/descendentRegistry.properties下注册了Pet信息,描述继承关系
+	4、codebase/modelRegistry.properties下注册了Pet信息,描述模型包名和类名
+	5、codebase/associationRegistry.properties(用于描述link关系的模型信息,本次练习没用到)
+三、生成模型的sql文件
+	windchill shell中执行
+	ant -f bin/tools.xml sql_script -Dgen.input=ext.wisplm.demo.part.model.Pet
+	(可为*,表示生成model下所有java模型的sql)
+	执行完毕,系统生成以下文件:
+	db\sql3\ext\wisplm\demo\part\model下生成模型数据库表的sql文件
+	1、创建数据库表sql:create_WISPet_Table.sql
+	2、创建索引sql   :create_WISPet_Index.sql
+	3、丢弃数据库索引    :drop_WISPet_Index.sql
+	4、丢弃数据库表       :drop_WISPet_Table.sql
+	-----------------------------------------------------------------
+	创建数据库表和索引:
+	进入sql文件目录
+	1、cd D:\ptc\Windchill_10.2\Windchill\db\sql3\ext\wisplm\demo\part\model
+	登录数据库
+	2、sqlplus pdm10/pdm10@wind
+	创建数据库表
+	3、@create_WISPet_Table.sql
+	创建索引
+	4、@create_WISPet_Index.sql
+三、重启MethodServer生效
+-----------------------------------------整理部署包---------------------
+	项目根目录下创建以下文件夹(和src平级):codebase、db、src_gen(配置为项目的source目录)并拷贝以下文件到项目
+	2、抽取codebase同目录下的class和ser文件;
+	3、抽取codebase/descendentRegistry.properties里pet相关配置项,整理到文件descendentRegistry.properties_add
+	4、抽取codebase/modelRegistry.properties里pet相关的配置项,整理到文件modelRegistry.properties_add
+	5、抽取codebase/associationRegistry.properties整理到文件modelRegistry.properties_add(本次练习未用到)
+	 (说明:服务器已存在的文件,整理增量包时一般命名为文件名_add)
+	4、抽取src_gen下_Pet.java;
+	5、抽取db/sql3/ext/wisplm/demo/part/model下pet相关sql文件(其他嵌套调用的可不用整理)
+		创建数据库表sql:create_WISPet_Table.sql
+		创建索引sql   :create_WISPet_Index.sql
+		丢弃数据库索引    :drop_WISPet_Index.sql
+		丢弃数据库表       :drop_WISPet_Table.sql
+----------------------------------生产系统部署---------------------------
+	部署:
+	1、codebase下class和ser文件拷贝到服务器同目录
+	2、codebase根目录下的properties_add的内容添加到服务器同名文件下
+	3、执行相关sql文件创建数据库表和索引
+	部署时,关闭methodserver
+	部署完,启动时,系统自动读取模型相关的这几个properteis
+	并查找对应类的ser文件和数据库表,若没有则报错无法启动methodserver
+	也就是说,properties里注册了模型,却没有找到相应的ser文件和数据库表。

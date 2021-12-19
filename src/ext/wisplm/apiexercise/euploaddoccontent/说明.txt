@@ -1,0 +1,3 @@
+上传文档主内容和附件
+shell中执行:java ext.wisplm.apiexercise.euploaddoccontent.DocumentContent <文档编号> <硬盘文件全路径> <是否主内容(true或false)>
+程序执行完毕,查看文档主内容和附件,确认发生变化。

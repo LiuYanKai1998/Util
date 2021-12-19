@@ -1,0 +1,2 @@
+为文档添加参考文档(这里的参考文档可以为任何文档类型)
+shell 中执行:java ext.wisplm.apiexercise.lcreatedocdoclink.Link <文档编号> <参考文档的编号>

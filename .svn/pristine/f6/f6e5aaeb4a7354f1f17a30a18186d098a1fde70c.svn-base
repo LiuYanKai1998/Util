@@ -1,0 +1,3 @@
+<mvc:builder-scan base-package="ext.wis" />
+<!-- 扫描的根路径为ext -->
+<context:component-scan base-package = "ext"/>

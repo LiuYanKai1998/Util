@@ -1,0 +1,4 @@
+本示例程序用于创建CAD文档
+先决条件:产品库中已存在部件和CAD文档
+shell中执行:java ext.wisplm.apiexercise.icreatepartcadlink.Link <部件编号> <CAD编号>
+执行完毕查看部件相关CAD文档和CAD文档相关部件，确认相互关系已建立。

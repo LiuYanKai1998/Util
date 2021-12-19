@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE NmLoader SYSTEM "standardX20.dtd">
+<NmLoader>
+<!-- 导入命令:windchill wt.load.LoadFromFile -d loadFiles/ext/bamtri/custTaskFormTemplates.xml -Unattended -NoServerStop -u wcadmin -p wcadmin -->
+	<csvCreateTaskformTemplate handler="com.ptc.netmarkets.workflow.taskformtemplates.LoadTaskformTemplate.createTemplate">
+		<!-- 任务表单模板名称 -->
+		<csvFileName>需求分析说明书签审模板</csvFileName>
+		<csvFilePath>ext/wis/taskform/Site5_wt.fc.WTObject_WfTask_需求分析说明书签审模板</csvFilePath>
+		<!-- 任务表单模板类型 -->
+		<csvTaskType>WfTask</csvTaskType>
+		<csvPboClass>wt.fc.WTObject</csvPboClass>
+		<csvFileFormat>jsp</csvFileFormat>
+		<csvdescription>default</csvdescription>
+	</csvCreateTaskformTemplate>
+</NmLoader>

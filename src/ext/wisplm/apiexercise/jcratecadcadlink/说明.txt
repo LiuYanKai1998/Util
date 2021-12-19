@@ -1,0 +1,2 @@
+为cad添加子cad文档
+shell中执行:java ext.wisplm.apiexercise.jcratecadcadlink.Link <父EPM编号> <子EPM编号>

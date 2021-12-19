@@ -1,0 +1,21 @@
+${ wt.home }codebase/WEB-INF/sun-jaxws.xml
+
+<endpoint implementation="ext.bamtri.integration.mpmtask.ws.MPMWebService" name="MPMWebService" url-pattern="/servlet/MPMWebService">
+		<jws:handler-chains>
+	    	<jws:handler-chain>
+	         	<jws:handler>
+					<jws:handler-class>com.ptc.jws.security.impl.WebServerAuthenticated</jws:handler-class>
+	            </jws:handler>
+	         </jws:handler-chain>
+      </jws:handler-chains>
+</endpoint>
+
+<endpoint implementation="ext.bamtri.integration.portal.ws.PortalWebService" name="MPMWebService" url-pattern="/servlet/MPMWebService">
+		<jws:handler-chains>
+	    	<jws:handler-chain>
+	         	<jws:handler>
+					<jws:handler-class>com.ptc.jws.security.impl.WebServerAuthenticated</jws:handler-class>
+	            </jws:handler>
+	         </jws:handler-chain>
+      </jws:handler-chains>
+</endpoint>

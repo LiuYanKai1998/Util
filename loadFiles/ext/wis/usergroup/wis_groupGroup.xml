@@ -1,0 +1,11 @@
+<?xml version="1.0" ?><!DOCTYPE NmLoader SYSTEM "standardX24.dtd">
+<NmLoader>
+<csvGroupGroup handler="wt.org.LoadPrincipal.createGroupGroup" >
+    <csvuser></csvuser>
+    <csvparentGroupName>慧领科技</csvparentGroupName>
+    <csvchildGroupName>售后服务部</csvchildGroupName>
+    <csvparentDirectoryService></csvparentDirectoryService>
+    <csvchildDirectoryService></csvchildDirectoryService>
+</csvGroupGroup>
+
+</NmLoader>

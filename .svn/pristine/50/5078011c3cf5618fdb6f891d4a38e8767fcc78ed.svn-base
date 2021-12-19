@@ -1,0 +1,11 @@
+ext4.2示例功能-设计更改贯彻跟踪系统
+1、需求
+	见ext4.2示例功能-设计更改贯彻跟踪系统界面设计需求.docx；
+2、前端文件清单
+	codebase\netmarkets\jsp\ext\wisplm\javascript
+	codebase\netmarkets\jsp\ext\wisplm\jsps
+	codebase\netmarkets\javascript\bom\extjs4.2
+3、后端controller
+	src\ext\wisplm\controller
+4、spring配置文件
+	codebase/config/mvc/custom.xml

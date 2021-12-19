@@ -1,0 +1,9 @@
+--通过文档编号查找masterid
+ select t.ida2a2 from wtdocumentMaster t where t.wtdocumentnumber='20200414-001';--145735
+ --通过master id查找文档所有小版本对象,通过检出检入观察数据库变化
+ select t.versionida2versioninfo --大版本,
+ ,t.iterationida2iterationinfo --小版本,
+ ,t.ida2a2 --id,
+ ,t.branchiditerationinfo --分支大版本id 
+ ,t.statecheckoutinfo
+  from wtdocument t where t.ida3masterreference='145735';--145737 c/o,145785-wrk

@@ -1,0 +1,4 @@
+#User,user,用户ID,webID,用户全称,Last,用户所属语言,EMAIL,描述（不填）,标题（不填）,组织,（不填）,（不填）,（不填）,（不填）,（不填）,（不填）,（一律填写x）,用户密码
+#User,user,newUser,webServerID,fullName,Last,Locale,Email,Description,Title,Organization,Street1,Street2,City,State,Country,ZipCode,ignore,password
+User,,user1,user1,用户1,,zh_cn,,,,WIS,,,,,,,x,123
+User,,user2,user2,用户2,,zh_cn,,,,WIS,,,,,,,x,123

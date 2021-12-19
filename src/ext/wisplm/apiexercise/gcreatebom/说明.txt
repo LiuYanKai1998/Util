@@ -1,0 +1,4 @@
+本示例程序用于搭建简单bom结构
+先决条件:创建软属性route,显示名称:路线。添加软属性"路线"到类型"部件使用关系(WTPartUsageLink)"
+shell中执行:java ext.wisplm.apiexercise.gcreatebom.Bom <父件编号> <子件编号>
+程序执行完毕,查看bom结构确认搭建完毕。

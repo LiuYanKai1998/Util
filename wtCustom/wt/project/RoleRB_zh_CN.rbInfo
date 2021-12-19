@@ -1,0 +1,87 @@
+ResourceInfo.class=wt.tools.resource.EnumResourceInfo
+ResourceInfo.customizable=true
+ResourceInfo.deprecated=false
+
+# Entry Format (values equal to default value are not included)
+# <key>.value=
+# <key>.category=
+# <key>.comment=
+# <key>.argComment<n>=
+# <key>.constant=
+# <key>.customizable=
+# <key>.deprecated=
+# <key>.abbreviatedDisplay=
+# <key>.fullDisplay=
+# <key>.shortDescription=
+# <key>.longDescription=
+# <key>.order=
+# <key>.defaultValue=
+# <key>.selectable=
+
+# Entry Contents
+# custom Roles
+###########1、拷贝到服务器
+###########2、编译,shell中执行resourcebuild wt.project.RoleRB
+###########3、重新生成客户端jar包,shell中执行ant -f codebase/MakeJar.xml
+###########4、重启MethodServer
+###########5、清除客户端java和浏览器缓存
+
+FUMU.value=父母
+FUMU.shortDescription=父母角色
+FUMU.order=3001
+
+LAOSHI.value=老师
+LAOSHI.shortDescription=老师角色
+LAOSHI.order=3002
+
+LAOBAN.value=老板
+LAOBAN.shortDescription=老板角色
+LAOBAN.order=3003
+
+ZIJI.value=自己
+ZIJI.shortDescription=自己角色
+ZIJI.order=3004
+##################################
+JIAODUIZHE.value=校对者
+JIAODUIZHE.shortDescription=校对者
+JIAODUIZHE.order=3005
+
+SHENHEZHE.value=审核者
+SHENHEZHE.shortDescription=审核者
+SHENHEZHE.order=3006
+
+APPROVER.value=批准者
+APPROVER.shortDescription=批准者角色
+APPROVER.order=3007
+
+WISXITONGJIAGOUSHI.value=WIS系统架构师
+WISXITONGJIAGOUSHI.shortDescription=WIS系统架构师
+WISXITONGJIAGOUSHI.order=8001
+
+WISKAIFAGONGCHENGSHI.value=WIS开发工程师
+WISKAIFAGONGCHENGSHI.shortDescription=WIS开发工程师
+WISKAIFAGONGCHENGSHI.order=8002
+
+WISJIAODUIZHE.value=WIS校对者
+WISJIAODUIZHE.shortDescription=WIS校对者
+WISJIAODUIZHE.order=8003
+
+WISSHENHEZHE.value=WIS审核者
+WISSHENHEZHE.shortDescription=WIS审核者
+WISSHENHEZHE.order=8004
+
+WISSHENDINGZHE.value=WIS审定者
+WISSHENDINGZHE.shortDescription=WIS审定者
+WISSHENDINGZHE.order=8005
+
+WISPIZHUNZHE.value=WIS批准者
+WISPIZHUNZHE.shortDescription=WIS批准者
+WISPIZHUNZHE.order=8006
+
+WISHUIQIANZHE.value=WIS会签者
+WISPIZHUNZHE.shortDescription=WIS会签者
+WISPIZHUNZHE.order=8007
+
+WISJIEGOUSHEJISHI.value=WIS结构设计师
+WISJIEGOUSHEJISHI.shortDescription=WIS结构设计师
+WISJIEGOUSHEJISHI.order=8008

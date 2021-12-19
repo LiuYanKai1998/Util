@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE loadFileList SYSTEM "/wt/load/windchillLoad.dtd">
+<loadFileList>
+	<!--导入命令:windchill wt.load.LoadFileSet -file loadFiles/ext/wis/loadSetType.xml  -Unattended -NoServerStop -u wcadmin -p wcadmin-->
+	<!-- 文档 -->
+	<loadFile filename="ext\wis\type\文档\文档_0.xml" containerPath="/" />
+	<loadFile filename="ext\wis\type\文档\文档_1.xml" containerPath="/" />
+	<loadFile filename="ext\wis\type\文档\文档_2.xml" containerPath="/" />
+	<!-- 部件 -->
+	<loadFile filename="ext\wis\type\部件\部件_0.xml" containerPath="/" />
+	<loadFile filename="ext\wis\type\部件\部件_1.xml" containerPath="/" />
+	<loadFile filename="ext\wis\type\部件\部件_2.xml" containerPath="/" />
+</loadFileList>

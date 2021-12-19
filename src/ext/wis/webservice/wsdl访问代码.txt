@@ -1,0 +1,75 @@
+
+---------------------axis-------------------------
+import javax.xml.namespace.QName;
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+public class WsClient {
+	public static void main(String[] args) {
+	//webservice服务地址
+		String portalUrl ="http://127.0.0.1:8080/sysware/service/xxxx?wsdl";
+		String result = "";
+		Service service = new Service();
+		Call call;
+		try {
+	//命名空间
+			String wsNameSpace = "http://esb.webservice.cnnc.com/";
+			call = (Call) service.createCall();
+			call.setTargetEndpointAddress(new java.net.URL(portalUrl));
+			//设置调用的方法名
+			call.setOperationName(new QName(wsNameSpace, "getUser"));
+			//设置参数名
+			call.addParameter("String",
+					org.apache.axis.encoding.XMLType.XSD_STRING,
+					javax.xml.rpc.ParameterMode.IN);
+			//设置返回类型
+			call.setReturnType(org.apache.axis.encoding.XMLType.XSD_STRING); //返回String
+			call.setUseSOAPAction(true);
+			call.setSOAPActionURI(wsNameSpace + "getUser");
+			//远程调用
+			Object[] parmmeter = {"参数信息"};
+			result = (String) call.invoke(parmmeter);
+			System.out.println(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}
+
+---------------------axis2-------------------------
+
+import org.apache.axis2.AxisFault;
+import org.apache.axis2.addressing.EndpointReference;
+import org.apache.axis2.client.Options;
+import org.apache.axis2.rpc.client.RPCServiceClient;
+import javax.xml.namespace.QName;
+public class WsClient {
+	public static void main(String[] args) {
+		//使用RPC方式调用WebService        
+        RPCServiceClient serviceClient;
+		try {
+			serviceClient = new RPCServiceClient();
+			Options options = serviceClient.getOptions();
+			//  指定调用WebService的URL
+			String wsurl="http://127.0.0.1:8080/demo/services/TestWS?wsdl";
+			EndpointReference targetEPR = new EndpointReference(wsurl);
+			options.setTo(targetEPR);
+			 String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><request>123456</request>";
+			Object[] opAddEntryArgs = new Object[] {xml};
+			
+			//指定getGreeting方法返回值的数据类型的Class对象 
+			Class[] classes = new Class[]{String.class};
+			//指定要调用的方法及WSDL文件的命名空间
+			QName opAddEntry = new QName("http://webservice.sysware.com", "getFtpMsg");//getAge
+			//调用getGreeting方法并输出该方法的返回值
+			String  result= (String) serviceClient.invokeBlocking(opAddEntry, opAddEntryArgs,classes)[0];
+			System.out.println(result+"-------------输出结果");
+		} catch (AxisFault e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
+

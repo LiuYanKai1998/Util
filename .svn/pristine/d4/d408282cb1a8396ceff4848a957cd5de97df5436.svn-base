@@ -1,0 +1,196 @@
+	<!--引入自定义的actionModels.xml文件-->
+	<include href="config/actions/ext/people-actionModels.xml"/>
+	
+   <!-- Part information page Actions list -->
+   <model name="more parts actions" menufor="wt.part.WTPart">
+        <!--查看EBOM结构-->
+    	<action name="viewEBOM"  type="bom"/>
+   		<!--提交审阅EBOM-->
+    	<action name="submitReviewEBOM"  type="bom"/>
+   		<!--下载EBOM清册-->
+   		<action name="downloadEBOMList"  type="bom"/>
+   		<!--下载EBOM数模-->
+   		<action name="downloadEBOMModel" type="bom"/>
+   		<action name="separator" type="separator"/>
+   		<!--搜索部件1-->
+   	   <action name="searchPart1" type="wis1"/> 
+   		<!-- 下载文件demo -->
+   	   <action name="downloadFile" type="wis"/>
+   	   <!-- wizard demo -->
+   	   <action name="wizard" type="wis"/>
+   	   <!-- add by binpeng20200419搜索部件 -->
+   	   <action name="searchPart" type="wis"/>
+   	   <!-- add by binpeng20200419提交审阅 -->
+   	   <action name="submit" type="wis"/>
+   	   <action name="SetState" type="wis"/>
+   	   <action name="separator" type="separator"/>
+   	   
+	   <action name="glow"   type="operation"/>
+       <action name="view" type="object"/>                             <!-- View Information -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <submodel name="more parts toolbar actions open"/>
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <action name="checkin" type="wip"/>                             <!-- Check In -->
+       <action name="WFCHECKIN" type="pdmObject"/>                     <!-- Check In for new objects in workspace or objects checked out to workspace-->
+       <action name="checkout" type="wip"/>                            <!-- Check Out -->
+	   <action name="WFRMBCHECKOUT" type="pdmObject" />			   	   <!-- checkout for rmb menu on workspace listing page -->
+       <action name="checkoutAndEdit" type="part"/>                    <!-- Check Out and Edit -->
+       <action name="undocheckout" type="object"/>                     <!-- Undo Checkout -->
+       <action name="WFCANCELCHECKOUT" type="pdmObject"/>              <!-- Undo Checkout for objects checked out to workspace-->
+       <action name="edit" type="part"/>                               <!-- Edit -->
+       <action name="editNewPartInWorkspace" type="part"/>             <!-- Edit newly created part in a workspace -->
+       <action name="editCheckedOutPartInWorkspace" type="part"/>      <!-- Edit part checked out to a workspace -->
+       <action name="editPartCommonAttrsWizard" type="part"/>          <!-- Edit Common Attributes -->
+       <action name="REVISEITEMS" type="pdmObject"/>                   <!-- Revise -->
+       <action name="separator" type="separator"/>
+       <action name="fulfillChangeActions" type="effectivity"/>        <!-- FulfillChangeActions -->
+       <action name="undoFulfillDesignSolutionInfoPage" type="effectivity"/>      <!-- Undo Fulfill Change Action -->
+       <action name="GenerateChangeActions" type="effectivity"/>       <!-- Generate Change Actions for CI -->
+       <action name="displayEffectivityLog" type="effectivity"/>       <!-- Display Effectivity Log -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <submodel name="more parts toolbar actions new"/>                       <!-- New ==> -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <action name="assignItemOptionality" type="optionality"/>       <!-- Assign Expression -->
+       <action name="viewAssignedExpression" type="expressionAssignable"/> <!-- View Assign Expression -->
+       <action name="copyAssignedExpression" type="expressionAssignable"/>              <!-- Copy Independent Expression -->
+       <action name="configure" type="variantspec"/>                   <!-- Configure -->
+       <action name="viewLogicBase" type="generic"/>                   <!-- Show Logic -->
+       <action name="findVariants" type="variant"/>                    <!-- Find Variants -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <action name="copy" type="object"/>                             <!-- Copy -->
+       <action name="WFSAVEAS" type="pdmObject"/>                      <!-- Save As -->
+       <action name="createSupersedeWithExistingWizard" 
+               type="supersede"/>                                      <!-- Supersede with Existing -->
+       <action name="createSupersedeWithNew" type="supersede"/>        <!-- Supersede with New -->
+       <action name="renameObjectWizard" type="object"/>               <!-- Rename -->
+       <action name="route" type="workflow"/>                          <!-- Route -->
+       <action name="CONTAINERMOVE" type="pdmObject"/>                 <!-- Move -->
+       <action name="SETSTATE" type="pdmObject"/>                      <!-- Set State -->
+       <action name="EXPORT" type="pdmObject"/>                        <!-- Export (PDMLink) -->
+       <action name="export" type="object"/>                           <!-- Export (ProjectLink) -->
+       <action name="spreadsheetExport" type="ixb"/>                   <!-- Export List to Importable Spreadsheet -->
+       <action name="MULTI_OBJ_DELETE" type="pdmObject"/>              <!-- Delete (Non-Information page) -->
+       <action name="MULTI_OBJ_DELETE_DETAILS" type="pdmObject"/>      <!-- Delete (Information page) -->
+       <action name="deleteIterations" type="object"/>                 <!-- Delete Non-latest Iterations -->
+       <action name="reassignLC" type="lifecycle"/>                    <!-- Reassign Life Cycle -->
+       <action name="resetTeam" type="team"/>                          <!-- Reset Team -->
+       <action name="assignView" type="part"/>                         <!-- Reassign View -->
+       <action name="publishToCAD" type="part"/>                       <!-- Publish to CAD -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <action name="WFDOWNLOAD" type="epmdocument"/>                           <!-- Add to Workspace -->
+       <submodel name="more parts toolbar actions add"/>               <!-- Add ==> -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <action name="SBSendToPdm" type="sandbox"/>                     <!-- Send to PDM -->
+       <action name="sandboxCheckoutShare" type="object"/>             <!-- Convert to PDM Checkout -->
+       <action name="sandboxUndoCheckoutDetails" type="object"/>       <!-- Undo PDM Checkout (Information Page) -->
+       <action name="removeShare" type="object"/>                      <!-- Remove Share -->
+       <action name="convertToShare" type="sandbox"/>                  <!-- Convert to Share -->
+       <action name="updateShare" type="sandbox"/>                     <!-- Update Selected Shares -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <action name="markLinkAsSuspect" type="requirement"/>           <!-- Mark Link As Suspect -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <action name="associateDistributionTarget" type="tgt"/>         <!-- ESI Associate distribution Targets (JCA action) -->
+       <action name="sendToDistributionTarget" type="tgt"/>            <!-- ESI Send to Distribution Target -->
+       <action name="erpInfo" type="esi"/>                             <!-- ERP Part Details -->
+       <action name="viewShopOrdersInfo" type="esi"/>                  <!-- ESI View Shop Order Count -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <submodel name="more parts actions compare"/>                   <!-- Compare ==> -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <action name="batchPrint" type="wvs"/>                          <!-- Severside batchprint using WVS -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <action name="DISPLAYRELATEDMANUFACTURINGITEMS" type="object"/> <!-- MPMLink Display Related Manufacturing items report -->
+       <action name="separator" type="separator"/>                     <!-- ===================================== -->
+       <!-- Add "Edit Localizable Properties (M020)-->                 <!-- Edit Localizable Properties (M020)-->
+       <submodel name="wsl_submenu" />
+       <action name="ManageSecurityMain" type="accessPermission"/>
+       <submodel name="object_manage_security_submenu"  />             <!-- Manage Security -->
+       <action name="createSubscription" type="subscription"/>         <!-- Subscribe -->
+   </model>
+   
+
+   <model name="SearchEmployeeTableModel">
+   	 <!--新建员工-->
+     <action   name="createEmployeeWizard" type="employee" shortcut="true"/>
+     <!--更新员工-->
+     <action   name="updateEmployeeWizard" type="employee" shortcut="true"/>
+     <!--删除员工-->
+     <action   name="deleteEmployee" type="employee" shortcut="true"/>
+     
+     <!--导出数据至csv-->
+     <action   name="exportTableCSV"       type="object" shortcut="true"/>
+     <!--导出数据至xls,该菜单会隐藏-->                                              
+     <action   name="exportTableXLS"       type="object" shortcut="false"/>                                           
+   </model>
+   
+   <model name="SearchEmployeeTableColumnModel">
+     	<action   name="deleteEmployee" type="employee" shortcut="true"/>
+   </model>
+   
+   
+	<!--文件夹工具栏-->
+   <model name="folderbrowser_toolbar_actions">
+      <description>Folder browser toolbar actions menu for all Folders.</description>
+	  <!--员工管理-->
+	  <action   name="basicInfoManagement"                         type="employee" shortcut="true"/>    
+      <submodel name="folderbrowser_toolbar_open_submenu" />
+      <action   name="separator"                                  type="separator" />
+      <submodel name="folderbrowser_toolbar_new_submenu" />
+      <action   name="separator"                                  type="separator" />            
+      <action   name="list_cut"                                   type="object" />                                                 <!-- Cut -->
+      <action   name="list_copy"                                  type="object" shortcut="true" />                                 <!-- Copy -->
+      <action   name="pasteAsCopy"                                type="saveas" />                                                 <!-- Paste (for Product/Library/Org/Site) -->
+      <action   name="fbpaste"                                    type="object" />                                                 <!-- Paste -->
+      <action   name="CONTAINERMOVE"                              type="pdmObject" />                                              <!-- Move -->
+      <action   name="separator"                                  type="separator" />
+      <action   name="multiObjectCheckIn"                         type="wip" />                                                    <!-- multiObjectCheckIn -->
+      <action   name="multiObjectCheckOut"                        type="wip" />                                                    <!-- multiObjectCheckOut -->      
+      <action   name="PAGERELOADINGMULTICHECKOUT"                 type="folder" />                                                 <!-- Check out to Workspace -->
+      <action   name="multiObjectUndoCheckout"                    type="wip" />                                                    <!-- multiObjectUndoCheckout -->
+      <action   name="editMultiObjects"                           type="object" />                                                 <!-- Edit Multiple Objects -->
+      <action   name="MULTIREVISEITEMS_FROMFOLDERS"               type="pdmObject" />                                              <!-- Revise -->
+      <action   name="route"                                      type="workflow" />                                               <!-- Route -->
+      <action   name="separator"                                  type="separator" />
+      <action   name="WFMULTISAVEAS"                              type="folder" />                                                 <!-- Save As -->
+      <action   name="SETSTATE_FROMFOLDERS"                       type="pdmObject" />                                              <!-- Set State -->
+      <action   name="export"                                     type="object" />                                                 <!-- Export -->
+      <action   name="cadmultiexport"                             type="object" />                                                 <!-- Export -->
+      <action   name="list_delete"                                type="object" />                                                 <!-- Delete -->
+      <action   name="batchPrint"                                 type="wvs" />                                                    <!-- Batch Print -->
+      <action   name="separator"                                  type="separator" />
+      <action   name="WFADDTOWORKSPACE"                           type="folder"  shortcut="true" />                                                 <!-- Add to Workspace -->
+      <submodel name="folderbrowser_toolbar_addto_submenu" />
+      <action   name="separator"                                  type="separator" />
+      <action   name="sendToPDM"                                  type="sandbox" />                                                <!-- Send to PDM -->
+      <action   name="convertToShareTB"                           type="sandbox" />                                                <!-- Convert to Share -->
+      <action   name="sandboxCheckoutShareMultiSelect"            type="object" />                                                 <!-- Convert to PDM Check-out -->
+      <action   name="sandboxUndoCheckout"                        type="object" />                                                 <!-- Undo PDM Check-out -->
+      <action   name="manageIdentityConflicts"                    type="sandbox" />                                                <!-- Manage Identity Conflict -->
+      <action   name="SBUpdatePrj"                                type="sandbox" />                                                <!-- Update Project -->
+      <action   name="updateShareMultiSelect"                     type="sandbox" />                                                <!-- Update Selected Shares -->
+      <action   name="removeShareTB"                              type="object" />                                                 <!-- Remove Share -->
+      <action   name="separator"                                  type="separator" />
+      <submodel name="folderbrowser_toolbar_compare_submenu" />
+      <submodel name="folderbrowser_toolbar_process_submenu" />
+      <action   name="downloadDocumentsToCompressedFile"          type="document" />                                               <!-- Download Documents to Compressed File -->
+      <action   name="createImportJob" 				  type="ixb"/>                                                     <!-- Import from Spreadsheet -->
+      <submodel name="folderbrowser_toolbar_exportlisttofile_submenu" />
+      <submodel name="folderbrowser_toolbar_requirements_submenu" />
+      <action   name="importFromIntegrity"                        type="integrityRM" />                                            <!-- Import items from Integrity -->
+      <action   name="separator"                                  type="separator" />
+      <action   name="multiObjManageSecurityMain"                 type="accessPermission" />
+      <submodel name="table_action_manage_security_submenu"  />                                                                    <!-- Manage Security -->
+      <action   name="createSubscription"                         type="subscription" />                                           <!-- Subscribe -->
+		<includeFilter name="ActionFilterOnProject2State" />
+   </model>
+   <!--顶部左侧一级导航,搜索 浏览 报表-->
+    <model name="navigator">
+        <submodel name="search navigation"/>
+        <submodel name="main navigation"/>
+        <submodel name="wisReport navigation"/>
+    </model>
+	<!--报表导航二级菜单定义-->
+    <model name="wisReport navigation" resourceBundle="ext.wis.resource.NavigationRB">
+    	<!--员工报表-->
+        <action name="employeeReport" type="employee"/>
+    </model>
+</actionmodels>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE NmLoader SYSTEM "standardX20.dtd">
+<NmLoader>
+<!-- custTaskFormTemplates.xml -->
+<!-- 导入命令:windchill wt.load.LoadFromFile -d loadFiles/ext/wis/任务表单模板导入文件.xml -Unattended -NoServerStop -u wcadmin -p wcadmin -->
+<!-- 要先导入任务表单模板再导入工作流 -->
+	<csvCreateTaskformTemplate handler="com.ptc.netmarkets.workflow.taskformtemplates.LoadTaskformTemplate.createTemplate">
+		<!-- 模板名称 -->
+		<csvFileName>需求分析说明书签审模板</csvFileName>
+		<!-- 模板文件路径,相对loadFiles目录,不带后缀 -->
+		<csvFilePath>ext/wis/taskform/Site5_wt.fc.WTObject_WfTask_需求分析说明书签审模板</csvFilePath>
+		<!-- 任务类型 -->
+		<!-- 默认值:WfTask,设置参与者:WfAugment,审阅:review,升级:promote,观察:observe,提交:submit -->
+		<!-- 用户任务1:UserTask1,用户任务2:UserTask2,... ... 用户任务7:UserTask7-->
+		<csvTaskType>WfTask</csvTaskType>
+		<!-- 任务表单模板支持的pbo类型 -->
+		<csvPboClass>wt.fc.WTObject</csvPboClass>
+		<!-- 任务表单模板文件类型 -->
+		<csvFileFormat>jsp</csvFileFormat>
+		<csvdescription>描述信息</csvdescription>
+	</csvCreateTaskformTemplate>
+	
+</NmLoader>

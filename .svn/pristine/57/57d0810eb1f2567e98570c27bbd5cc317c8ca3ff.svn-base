@@ -1,0 +1,70 @@
+package ext.wis6.module.invoke;
+
+import java.lang.reflect.InvocationTargetException;
+import java.rmi.RemoteException;
+
+import org.apache.log4j.Logger;
+
+import wt.method.RemoteAccess;
+import wt.method.RemoteMethodServer;
+import wt.org.WTUser;
+import wt.session.SessionHelper;
+import wt.util.WTException;
+
+/**
+ *
+ *Zhong Binpeng Jun 4, 2021
+ */
+public class RemoteInvokeDemo implements RemoteAccess{
+
+	private static final String CLASSNAME = RemoteInvokeDemo.class.getName();
+	private static final Logger logger    = Logger.getLogger(CLASSNAME);
+	
+	public static String test1(String s1,Double d2) throws RemoteException, InvocationTargetException, WTException{
+		if(!RemoteMethodServer.ServerFlag){
+			RemoteMethodServer rms = RemoteMethodServer.getDefault();
+			rms.setUserName("wcadmin");
+			rms.setPassword("wcadmin");
+			Class cla[]  = {String.class,Double.class};
+			Object obj[] = {s1,d2};
+			return (String) rms.invoke("test1", CLASSNAME, null, cla, obj);
+		}
+		WTUser user = (WTUser) SessionHelper.manager.getPrincipal();
+		SessionHelper.manager.setPrincipal("wcadmin");
+		
+		System.out.println("当前登录用户:" + user.getFullName());
+		return "有返回值";
+	}
+	
+	public static void test2(String s1,Double d2) throws RemoteException, InvocationTargetException{
+		if(!RemoteMethodServer.ServerFlag){
+			RemoteMethodServer rms = RemoteMethodServer.getDefault();
+			Class cla[]  = {String.class,Double.class};
+			Object obj[] = {s1,d2};
+			rms.invoke("test2", CLASSNAME, null, cla, obj);
+			return;
+		}
+		
+		System.out.println("添加了return");
+		//return "RemoteInvokeSuccess";
+	}
+	
+	public static void test3(String s1,Double d2) throws RemoteException, InvocationTargetException{
+		if(!RemoteMethodServer.ServerFlag){
+			RemoteMethodServer rms = RemoteMethodServer.getDefault();
+			Class cla[]  = {String.class,Double.class};
+			Object obj[] = {s1,d2};
+			rms.invoke("test3", CLASSNAME, null, cla, obj);
+		}
+		
+		System.out.println("没有添加return");
+		//return "RemoteInvokeSuccess";
+	}
+	
+	public static void main(String[] args) throws RemoteException, InvocationTargetException, WTException {
+		System.out.println(test1(null,null));
+		test2(null,null);
+		test3(null,null);
+	}
+
+}

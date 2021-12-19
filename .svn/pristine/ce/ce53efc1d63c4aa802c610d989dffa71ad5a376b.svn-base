@@ -1,0 +1,4 @@
+#UserGroup,user,*组名,csvgroupNameDirectoryService,*用户名,csvuserNameDirectoryService,csvDirectoryService
+#UserGroup,user,*组名,csvgroupNameDirectoryService,*用户名,csvuserNameDirectoryService,csvDirectoryService
+UserGroup,,慧领科技,,user1,,
+UserGroup,,售后服务部,,user2,,

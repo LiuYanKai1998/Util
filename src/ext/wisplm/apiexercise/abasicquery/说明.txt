@@ -1,0 +1,6 @@
+基本查询
+1、修改BasicQuery.java main方法中用户和密码参数为系统中存在的。
+2、编译BasicQuery.java文件并存放到codebase对应目录
+3、shell中执行java ext.wisplm.apiexercise.abasicquery <名称> <编号>
+该示例依据文档名称和编号查询文档对象,编号不区分大小写,两个条件均支持模糊查询,即使用*作为通配符。
+如:java com.thk.server.BasicQuery "*三" "00*"表示查询名称中以"三"结尾且编号以"00"开头的文档。

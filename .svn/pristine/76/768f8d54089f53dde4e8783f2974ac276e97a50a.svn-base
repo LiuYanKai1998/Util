@@ -1,0 +1,54 @@
+## 权限代码,,,,,,,
+## No.1  完全控制(ALL)/-1,,,,,,,
+## No.2  读(READ)/0,,,,,,,
+## No.3  修改(MODIFY)/1,,,,,,,
+## No.4  创建(CREATE)/2,,,,,,,
+## No.5  删除(DELETE)/5,,,,,,,
+## No.6  管理(ADMINISTRATIVE)/6,,,,,,,
+## No.7  修订(REVISE)/7,,,,,,,
+## No.8  新建视图版本(NEW_VIEW_VERSION)/8,,,,,,,
+## No.9  变更权限(CHANGE_PERMISSIONS)/9,,,,,,,
+## No.10 下载(DOWNLOAD)/10,,,,,,,
+## No.11 修改内容(MODIFY_CONTENT)/11,,,,,,,
+## No.12 变更域(CHANGE_DOMAIN)/12,,,,,,,
+## No.13 通过移动创建(CREATE_BY_MOVE)/13,,,,,,,
+## No.14 变更上下文(CHANGE_CONTEXT)/14,,,,,,,
+## No.15 设置状态(SET_STATE)/15,,,,,,,
+## No.16 修改标识(MODIFY_IDENTITY)/16,,,,,,,
+#如果本文件都是导入到同一个上下文，则在导入时增加参数即可
+#如上下文为xbc组织:-CONT_PATH /wt.inf.container.OrgContainer=xbc
+#如果策略条目里存在不同上下文的域,则在域对应的列里增加上下文使用[]描述，如[/wt.inf.container.OrgContainer=xbc]/Default/PDM,表示要导入到xbc组织里域Default下的域PDM
+#+赋予-拒绝!绝对拒绝",,,,,,,
+#,,域,类型,"拒绝-,允许+","承担者,组名,角色名均可,全部为ALL","权限集,多个用/隔开，全部为ALL",生命周期状态，全部为ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_XMZG,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_XMFZR,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_GYSJS,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_ZPRY,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_SCGLRY,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_DAGLY,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_DWLD,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_ZS,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_SLD,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_GYSJS,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_GYSJS,2/1/0/5/11,INWORK
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_GYSJS,1/0/11,SUBMITREVIEW
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_GYSJS,1/0/11,INMODIFY
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_GYSJS,7,RELEASED
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_GYSJS,7,CM_YFF
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.doc.WTDocument,+,CM_GYSJS,5,CM_YZF
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_XMZG,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_XMFZR,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_GYSJS,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_ZPRY,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_SCGLRY,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_DAGLY,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_DWLD,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_ZS,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_SLD,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_GYSJS,0/10,ALL
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_GYSJS,2/1/0/5/11,INWORK
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_GYSJS,1/0/11,SUBMITREVIEW
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_GYSJS,1/0/11,INMODIFY
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_GYSJS,7,RELEASED
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_GYSJS,7,CM_YFF
+AccessRule,,[/wt.inf.container.OrgContainer=bamtri/wt.pdmlink.PDMLinkProduct=625]/Default/1-工艺-图样,WCTYPE|wt.epm.EPMDocument,+,CM_GYSJS,5,CM_YZF

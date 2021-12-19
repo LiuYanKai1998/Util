@@ -1,0 +1,45 @@
+<!--1、手工添加以下内容到site.xconf文件<Configuration></Configuration>节点中-->
+<!--2、windchill shell中执行xconfmanager -p命令发布-->
+<!--3、重启MethodServer生效-->
+   <ConfigurationRef xlink:href="codebase/ext/wisplm/demo/config/wisplm.xconf"/>
+   <ConfigurationRef xlink:href="codebase/ext/wis/config/wis.xconf"/>
+   	<!------------电子仓库配置开始------------->
+   	<!--开启电子仓库-->
+	<Property name="wt.fv.forceContentToVault" overridable="true" targetFile="codebase/wt.properties" value="true"/>
+	<!--开启电子仓库的文件阈值-->
+	<Property name="wt.fv.useFvFileThreshold"  overridable="true" targetFile="codebase/wt.properties" value="true"/>
+	<!--文件的阈值数：默认7000-->
+	<Property name="wt.fv.fvFileThreshold"     overridable="true" targetFile="codebase/wt.properties" value="40000"/>
+	<!---->
+	<Property name="wt.fv.useVaultsForAll"     overridable="true" targetFile="codebase/wt.properties" value="true"/>
+	<!------------电子仓库配置结束------------->
+	
+	<!-------------可视化配置开始--------------->
+   <!--文件名转码-->
+   <Property name="publish.service.documents.options" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="encodefilename=true"/>           
+   <Property name="worker.exe.whitelist.prefixes" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="C:\|D:\|E:\"/>
+   <Property name="worker..DOC" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>
+   <Property name="worker..XLS" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>
+   <Property name="worker..PPT" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>
+   <Property name="worker..DOCX" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>
+   <Property name="worker..XLSX" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>
+   <Property name="worker..PPTX" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>
+   <!--<Property name="worker..PDF" overridable="true"  targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>-->
+   <Property name="worker..RTF" overridable="true"  targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>
+   <Property name="worker..TXT" overridable="true"  targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>
+   <Property name="worker..EPS" overridable="true"  targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>
+   <Property name="worker..PS" overridable="true"   targetFile="codebase/WEB-INF/conf/wvs.properties" value="OFFICE"/>
+   
+   <Property name="worker..JPG" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="DUMMY,preconverted=true"/>
+   <Property name="worker..BMP" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="DUMMY,preconverted=true"/>
+   <Property name="worker..DWG" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="DUMMY,preconverted=true"/>
+   <Property name="worker..TIF" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties" value="DUMMY,preconverted=true"/>
+   <!--配置可视化可执行文件白名单,设置value为work机creoview路径-->
+   <!--如果work机是unix,则在路径前面增加nohup 如value = "nohup /PTC/CAD_Workers"-->
+   <!--如果是多个work机,路径中间用|隔开,如value="C:\PTC\CAD_Workers|nohup /PTC/CAD_Workers"-->
+   <Property name="worker.exe.whitelist.prefixes" 
+   			 overridable="true" 
+   			 targetFile="codebase/WEB-INF/conf/wvs.properties" 
+   			 value="C:\ptc\creo_view_adapters"/>
+   <!-------------可视化配置结束--------------->
+    

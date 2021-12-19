@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE loadFileList SYSTEM "/wt/load/windchillLoad.dtd">
+<loadFileList>
+	<!--导入命令:windchill wt.load.LoadFileSet -file loadFiles/ext/wis/loadSet.xml  -Unattended -NoServerStop -u wcadmin -p wcadmin-->
+	
+	<!-- 工作流 -->
+	<loadFile filename="ext/wis/workflow/WIS需求分析说明书审批流程.xml" title="WIS需求分析说明书审批流程" containerPath="/"/>
+	
+	<!-- 生命周期 -->
+	<loadFile filename="ext/wis/lifecycle/WIS需求分析说明书生命周期.xml" title="WIS需求分析说明书生命周期" containerPath="/"/>
+	<loadFile filename="ext/wis/lifecycle/WISEBOM签审包生命周期.xml" title="WISEBOM签审包生命周期" containerPath="/"/>
+	<loadFile filename="ext/wis/lifecycle/WISEPM生命周期.xml" title="WISEPM生命周期" containerPath="/"/>
+	<loadFile filename="ext/wis/lifecycle/WIS部件生命周期.xml" title="WIS部件生命周期" containerPath="/"/>
+	
+	<!-- 对象初始化规则 -->
+	<!-- 导入到组织下wt.inf.container.OrgContainer=wis-->
+	<loadFile filename="ext/wis/oir/rule_需求分析说明书.xml"   title="rule_需求分析说明书.xml"  containerPath="/"/>
+	<loadFile filename="ext/wis/oir/rule_部件.xml"          title="rule_部件.xml"          containerPath="/"/> 
+	<loadFile filename="ext/wis/oir/rule_EPM文档.xml"       title="rule_EPM文档.xml"       containerPath="/"/>
+	<loadFile filename="ext/wis/oir/rule_EBOM签审包.xml"     title="rule_EBOM签审包.xml"    containerPath="/"/>    
+</loadFileList>

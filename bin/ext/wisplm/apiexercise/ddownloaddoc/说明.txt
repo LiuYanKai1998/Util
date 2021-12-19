@@ -1,0 +1,5 @@
+下载文档主内容和附件
+
+本示例程序用于下载指定编号文档最新版的主内容和附件
+shell中执行:java ext.wisplm.apiexercise.ddownloaddoc.DocumentContent <文档编号>
+程序下载文件的存储目录为D:\\文档主内容和附件,执行完毕后查看该目录确认下载成功。同时可查看MethodServer日志信息。

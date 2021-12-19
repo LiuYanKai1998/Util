@@ -1,0 +1,28 @@
+权限策略用于导入制作产品模板,也可手工创建,无需在服务器上单独导入(产品库模板已包含)
+权限代码对照表:
+#-1=完全控制 (全部)
+#0=读取
+#1=修改
+#10=下载
+#11=修改内容
+#12=更改域
+#13=通过移动创建
+#14=更改上下文
+#15=设置状态
+#16=修改标识
+#17=修改安全标签
+#2=创建
+#5=删除
+#6=管理
+#7=修订
+#8=新建视图版本
+#9=更改权限
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/acl/1-电气-技术文件.csv -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/acl/1-电气-图样.csv -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/acl/1-工艺-技术文件.csv -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/acl/1-工艺-图样.csv -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/acl/1-机械-技术文件.csv -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/acl/1-机械-图样.csv -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/acl/1-外来文件管理.csv -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/acl/1-公共-部件.csv -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/acl/1-公共-文档.csv -Unattended -NoServerStop -u wcadmin -p wcadmin

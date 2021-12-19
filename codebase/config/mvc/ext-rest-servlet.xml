@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+             http://www.springframework.org/schema/beans/spring-beans.xsd  
+             http://www.springframework.org/schema/context  
+             http://www.springframework.org/schema/context/spring-context.xsd  
+             http://www.springframework.org/schema/aop  
+             http://www.springframework.org/schema/aop/spring-aop.xsd  
+             http://www.springframework.org/schema/tx   
+             http://www.springframework.org/schema/tx/spring-tx.xsd  
+             http://www.springframework.org/schema/mvc    
+             http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<!-- RestController配置 -->
+
+    <!--解决responseBody返回中文乱码，放在annotation-driven前  -->
+    <!--
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="stringHttpMessageConverter"/>
+                <ref bean="mappingJacksonHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>   
+    -->
+      
+    <!-- 默认的注解映射的支持 -->
+    <!--  <mvc:annotation-driven />  -->
+
+    <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
+    <!-- <context:component-scan base-package="ext.yonde.*" use-default-filters="true">   -->
+			<!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+    <!--  </context:component-scan> -->
+
+	<!--
+    <bean id="stringHttpMessageConverter"
+        class="org.springframework.http.converter.StringHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/plain;charset=UTF-8</value>
+				<value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean> 
+	-->
+
+    <!-- 配置Jackson，用于编写REST API时，将Java Object映射成Json Obejct-->
+    <!--
+    <bean id="mappingJacksonHttpMessageConverter"
+        class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <bean class="org.springframework.http.MediaType">
+                        <constructor-arg index="0" value="application" />
+                        <constructor-arg index="1" value="json" />
+                        <constructor-arg index="2" value="UTF-8" />
+                </bean>
+            </list>
+        </property>
+    </bean> 
+    -->
+
+	<context:annotation-config/>
+	<context:component-scan base-package="ext" />
+	<mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8" />
+            </bean>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+        </mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!--
+	<bean
+	    class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">  
+            <list> 
+                <bean id="stringConverter"  class="org.springframework.http.converter.StringHttpMessageConverter">  
+                    <property name="supportedMediaTypes">  
+                        <list>  
+                            <value>text/plain;charset=UTF-8</value>  
+                        </list>  
+                    </property>  
+                </bean>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean> 
+            </list>
+        </property>
+    </bean>	
+    -->
+    
+	<context:property-placeholder location="classpath:/ext/wis/*.properties" file-encoding="UTF-8" />
+	<context:property-placeholder location="classpath:/ext/wisplm/*.properties" file-encoding="UTF-8" />
+	
+	<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
+    <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="DefaultEncoding" value="UTF-8" />
+        <property name="maxUploadSize" value="-1" />
+    </bean>
+	
+	<!-- CAD Integration AttrMapping For Catia 
+	<import resource="classpath:/ext/wis/config/CatiaIntegrationAttrMapping.xml"/>-->
+	
+	<!--GACE客制化配置 
+	<import resource="classpath:/ext/wis/config/GACEConfig.xml"/>-->
+	
+
+</beans>

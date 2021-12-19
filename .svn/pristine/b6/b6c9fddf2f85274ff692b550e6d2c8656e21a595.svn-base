@@ -1,0 +1,4 @@
+本示例程序用于创建CAD文档
+先决条件:产品库中存在第一层子文件夹"CAD文档"
+1、创建没有主内容的CAD文档：java ext.wisplm.apiexercise.hcreatecaddoc.CreateEPMDocument <CAD编号> <CAD名称> <存储容器>
+2、为已存在的CAD文档添加主内容:java ext.wisplm.apiexercise.hcreatecaddoc.EPMDocumentContent <CAD编号> <数模文件完整物理路径>

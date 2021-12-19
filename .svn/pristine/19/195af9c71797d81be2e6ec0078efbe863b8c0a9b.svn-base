@@ -1,0 +1,19 @@
+CSV转为XML(Windchill根目录下执行)
+windchill wt.load.util.CSV2XML -input groups20181221.csv -root loadFiles/ext/wisplm/usergroup
+windchill wt.load.util.CSV2XML -input groupGroup20181221.csv -root loadFiles/ext/wisplm/usergroup
+windchill wt.load.util.CSV2XML -input groupUsers20181221.csv -root loadFiles/ext/wisplm/usergroup
+windchill wt.load.util.CSV2XML -input users20181220.csv -root loadFiles/ext/wisplm/usergroup
+
+windchill wt.load.util.CSV2XML -input groups20190107.csv -root loadFiles/ext/wisplm/usergroup
+windchill wt.load.util.CSV2XML -input groupGroup20190107.csv -root loadFiles/ext/wisplm/usergroup
+windchill wt.load.util.CSV2XML -input groupUsers20190107.csv -root loadFiles/ext/wisplm/usergroup
+导入
+windchill wt.load.LoadFromFile -d loadFiles/ext/wisplm/usergroup/users20181220.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wisplm/usergroup/groups20181221.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wisplm/usergroup/groupGroup20181221.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wisplm/usergroup/groupUsers20181221.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+
+windchill wt.load.LoadFromFile -d loadFiles/ext/wisplm/usergroup/groups20190107.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wisplm/usergroup/groupGroup20190107.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wisplm/usergroup/groupUsers20190107.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+

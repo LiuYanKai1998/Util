@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configuration
+  SYSTEM "xconf.dtd">
+<Configuration xmlns:xlink="http://www.w3.org/1999/xlink">
+   <!-- 配置过滤器 -->
+   <Service context="default" name="com.ptc.core.ui.validation.SimpleValidationFilter" targetFile="codebase/service.properties">
+   		<!-- 增加Option节点描述自定义的Filter类 -->
+   		<!-- 员工管理过滤器 -->
+   		<Option serviceClass="ext.wis.employee.filter.EmployeeManagementFilter" 
+   				requestor="null" selector="EmployeeManagementFilter" cardinality="duplicate"/>
+   		<!--员工信息表格过滤器-->
+   		<Option serviceClass="ext.wis.employee.filter.EmployeeTableToolBarFilter" 
+   				requestor="null" selector="EmployeeTableToolBarFilter" cardinality="duplicate"/>		
+   		<!-- 下载EBOM清册过滤器 -->
+   		<Option serviceClass="ext.wis.ebom.filter.DownloadEBOMListFilter" 
+   				requestor="null" selector="DownloadEBOMListFilter" cardinality="duplicate"/>
+      		<!-- EBOM提交审阅过滤器 -->
+   		<Option serviceClass="ext.wis.ebom.filter.SubmitReviewEBOMFilter" 
+   				requestor="null" selector="SubmitReviewEBOMFilter" cardinality="duplicate"/>
+   </Service>
+   <!--客制化Datautility,添加后执行xconfmanager -p发布,重启MethodServer,然后在布局或者表格属性中引用,dataUtility ID设置为selector的值-->  
+   <!-- 一个service里注册多个option即多个datautility类 -->        
+   <Service context="default" name="com.ptc.core.components.descriptor.DataUtility" targetFile="codebase/wt.properties">
+		<Option serviceClass="ext.wis.employee.datautility.EmployeeInfoDataUtility" 
+				selector="EmployeeInfoDataUtility"  
+				requestor="java.lang.Object" 
+				cardinality="duplicate"/>
+		<!-- 创建WIS需求分析说明书时,生成文档编号的datautility类,在该类型布局Create New Layout -编号-设置数据实用程序值为GenerateDocNumberUtility-->
+		<Option serviceClass="ext.wis.doc.datautility.GenerateDocNumberUtility" 
+				selector="GenerateDocNumberUtility"  
+				requestor="java.lang.Object" 
+				cardinality="duplicate"/>
+		<!-- EBOM签审包详情页,部件oid转换为部件详情页的链接 -->
+		<Option serviceClass="ext.wis.ebom.datautility.EbomPackageRootPartInfoUtility" 
+				selector="EbomPackageRootPartInfoUtility"  
+				requestor="java.lang.Object" 
+				cardinality="duplicate"/>
+   </Service>
+   
+<!--启用任务表单模板分类用户任务1-5-->
+<Property name="wt.clients.workflow.tasks.task.7" overridable="true" targetFile="codebase/wt.properties" value="UserTask1"/>
+<Property name="wt.clients.workflow.tasks.task.8" overridable="true" targetFile="codebase/wt.properties" value="UserTask2"/>
+<Property name="wt.clients.workflow.tasks.task.9" overridable="true" targetFile="codebase/wt.properties" value="UserTask3"/>
+<Property name="wt.clients.workflow.tasks.task.10" overridable="true" targetFile="codebase/wt.properties" value="UserTask4"/>
+<Property name="wt.clients.workflow.tasks.task.11" overridable="true" targetFile="codebase/wt.properties" value="UserTask5"/>
+<!--工作流变量支持map数据类型-->
+<Property name="wt.workflow.definer.variable.ShowWfEvolvableWarning" overridable="true" targetFile="codebase/wt.properties" value="true"/>
+<!-- 客制化工作流变量显示的datautility类 -->
+<Property name="wt.services/svc/default/com.ptc.core.components.descriptor.DataUtility/workitem_customvariable/java.lang.Object/0" 
+			  overridable="true" 
+			  targetFile="codebase/com/ptc/core/components/components.dataUtilities.properties" 
+			  value="ext.wis.workflow.WISCustomVariablesDataUtility/singleton" />
+			  
+</Configuration>

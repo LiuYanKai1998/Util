@@ -1,0 +1,16 @@
+1. 追加内容至{windchill.install}\HTTPServer\conf\extra\app-Windchill-AJP.conf
+<IfModule mod_jk.c>
+
+  #Customization for extRest
+  JkMount /Windchill/extRest/* ajpWorker
+
+</IfModule>
+
+2. 追加内容至{windchill.install}\HTTPServer\conf\extra\app-Windchill-Auth.conf
+
+# Customization for ext trusted URL
+<LocationMatch ^/+Windchill/+extRest/+trusted(;.*)?>
+  Satisfy Any
+  Allow from all
+</LocationMatch>
+3.重启Apache

@@ -1,0 +1,49 @@
+<?xml version="1.0" ?><!DOCTYPE NmLoader SYSTEM "standardX24.dtd">
+<NmLoader>
+<csvUser handler="wt.load.LoadUser.createUser" >
+    <csvuser></csvuser>
+    <csvnewUser>user1</csvnewUser>
+    <csvwebServerID>user1</csvwebServerID>
+    <csvfullName>用户1</csvfullName>
+    <csvLast></csvLast>
+    <csvLocale>zh_cn</csvLocale>
+    <csvEmail></csvEmail>
+    <csvDescription></csvDescription>
+    <csvTitle></csvTitle>
+    <csvOrganization>WIS</csvOrganization>
+    <csvStreet1></csvStreet1>
+    <csvStreet2></csvStreet2>
+    <csvCity></csvCity>
+    <csvState></csvState>
+    <csvCountry></csvCountry>
+    <csvZipCode></csvZipCode>
+    <csvignore>x</csvignore>
+    <csvpassword>123</csvpassword>
+    <csvDirectoryService></csvDirectoryService>
+    <csvAllowLdapSync></csvAllowLdapSync>
+</csvUser>
+
+<csvUser handler="wt.load.LoadUser.createUser" >
+    <csvuser></csvuser>
+    <csvnewUser>user2</csvnewUser>
+    <csvwebServerID>user2</csvwebServerID>
+    <csvfullName>用户2</csvfullName>
+    <csvLast></csvLast>
+    <csvLocale>zh_cn</csvLocale>
+    <csvEmail></csvEmail>
+    <csvDescription></csvDescription>
+    <csvTitle></csvTitle>
+    <csvOrganization>WIS</csvOrganization>
+    <csvStreet1></csvStreet1>
+    <csvStreet2></csvStreet2>
+    <csvCity></csvCity>
+    <csvState></csvState>
+    <csvCountry></csvCountry>
+    <csvZipCode></csvZipCode>
+    <csvignore>x</csvignore>
+    <csvpassword>123</csvpassword>
+    <csvDirectoryService></csvDirectoryService>
+    <csvAllowLdapSync></csvAllowLdapSync>
+</csvUser>
+
+</NmLoader>

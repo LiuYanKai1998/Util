@@ -1,0 +1,5 @@
+创建部件和文档的关系
+部件和文档之间有参考和说明两种关系。
+如果文档为【参考文档】类型，则建立参考关系。
+如果文档为其他类型，则建立说明关系。
+shell 中执行:java ext.wisplm.apiexercise.kcreatepartdoclink.Link <部件编号> <说明或参考文档编号>

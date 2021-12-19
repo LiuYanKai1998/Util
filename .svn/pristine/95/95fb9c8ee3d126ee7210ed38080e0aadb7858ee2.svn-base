@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE loadFileList SYSTEM "/wt/load/windchillLoad.dtd">
+<loadFileList>
+	<!--导入命令:windchill wt.load.LoadFileSet -file loadFiles/ext/wis/loadSet.xml  -Unattended -NoServerStop -u wcadmin -p wcadmin-->
+	<!--containerPath属性:-->
+	<!--使用/对容器层级进行划分,/表示站点,多级容器之间用/隔开-->
+	<!-- 导入到站点下containerPath="/"-->
+	<!-- 导入到组织下containerPath="wt.inf.container.OrgContainer=<组织名称>"-->
+	<!-- 导入到存储库containerPath="/wt.inf.container.OrgContainer=<组织名称>/wt.inf.library.WTLibrary=<存储库名称>"> -->
+ 	<!-- 导入到产品库containerPath="/wt.inf.container.OrgContainer=<组织名称>/wt.pdmlink.PDMLinkProduct=<产品库名称>"> -->
+	<!-- 为了方便导入时排错,一般情况下,用户、组、类型、任务表单模板单独执行导入,在全部导入完毕后再批量导入工作流、生命周期、对象初始化规则 -->
+	<!-- 工作流 -->
+	<loadFile filename="ext/wis/workflow/WIS需求分析说明书审批流程.xml" title="WIS需求分析说明书审批流程" containerPath="/"/>
+	
+	<!-- 生命周期 -->
+	<loadFile filename="ext/wis/lifecycle/WIS需求分析说明书生命周期.xml" title="WIS需求分析说明书生命周期" containerPath="/"/>
+	<loadFile filename="ext/wis/lifecycle/WISEBOM签审包生命周期.xml" title="WISEBOM签审包生命周期" containerPath="/"/>
+	<loadFile filename="ext/wis/lifecycle/WISEPM生命周期.xml" title="WISEPM生命周期" containerPath="/"/>
+	<loadFile filename="ext/wis/lifecycle/WIS部件生命周期.xml" title="WIS部件生命周期" containerPath="/"/>
+	
+	<!-- 对象初始化规则 -->
+	<loadFile filename="ext/wis/oir/rule_需求分析说明书.xml"   title="rule_需求分析说明书.xml"  containerPath="/"/>
+	<loadFile filename="ext/wis/oir/rule_部件.xml"          title="rule_部件.xml"          containerPath="/"/> 
+	<loadFile filename="ext/wis/oir/rule_EPM文档.xml"       title="rule_EPM文档.xml"       containerPath="/"/>
+	<loadFile filename="ext/wis/oir/rule_EBOM签审包.xml"     title="rule_EBOM签审包.xml"    containerPath="/"/>    
+</loadFileList>

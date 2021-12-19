@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE loadFileList SYSTEM "/wt/load/windchillLoad.dtd">
+<loadFileList>
+	<!--导入命令:windchill wt.load.LoadFileSet -file loadFiles/ext/wis/loadSetUserGroup.xml  -Unattended -NoServerStop -u wcadmin -p wcadmin-->	
+	<!-- 注意导入顺序,先导入用户、组对象，再导入用户、用户和组的关系,导xml不导csv -->
+	<loadFile filename="ext/wis/usergroup/wis_Users.xml" title="" containerPath="/"/>
+	<loadFile filename="ext/wis/usergroup/wis_groups.xml"     title="" containerPath="/"/>
+	<loadFile filename="ext/wis/usergroup/wis_groupGroup.xml" title="" containerPath="/"/>
+	<loadFile filename="ext/wis/usergroup/wis_GroupUsers.xml" title="" containerPath="/"/>
+	
+	</loadFileList>

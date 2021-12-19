@@ -1,0 +1,97 @@
+ResourceInfo.class=wt.tools.resource.EnumResourceInfo
+ResourceInfo.customizable=true
+ResourceInfo.deprecated=false
+
+# Entry Format (values equal to default value are not included)
+# <key>.value=
+# <key>.category=
+# <key>.comment=
+# <key>.argComment<n>=
+# <key>.constant=
+# <key>.customizable=
+# <key>.deprecated=
+# <key>.abbreviatedDisplay=
+# <key>.fullDisplay=
+# <key>.shortDescription=
+# <key>.longDescription=
+# <key>.order=
+# <key>.defaultValue=
+# <key>.selectable=
+
+#########1、以上内容为固定格式(以下说明对于状态(StateRB)、角色(RoleRB)、和系统中所有的rbInfo文件有效)
+#########2、此文件无需手工创建,复制src/wt/lifecycle/StateRB.rbInfo文件到此目录(注意:文件编码ANSI,eclipse显示编码GBK),移除原有状态配置,新增状态配置即可
+#########3、修改完毕,拷贝到windchill/wtCustom同目录下
+#########4、shell中执行resourcebuild wt.lifecycle.StateRB进行编译,系统后台自动编译StateRB所有语言的rbInfo文件,并对src和wtCustom下的StateRB进行合并编译
+#########5、shell中执行ant -f codebase/MakeJar.xml,此命令用于重新生成在客户端applet执行的jar包(生命周期模板管理、工作流模板管理、策略管理器等需要applet的地方)
+#########6、重启MethodServer
+#########7、清理客户端java和浏览器缓存,参见03_客户端电脑配置V1.0.docx第4章。
+#增加一个状态,有两行配置,后台操作使用状态key(纯英文)
+#1状态key.value=该状态的中文显示名称
+#2状态key.shortDescription=该状态的描述信息
+
+# Entry Contents
+CHUSHENG.value=CHUSHENG
+CHUSHENG.shortDescription=CHUSHENG
+
+YOUNIAN.value=YOUNIAN
+YOUNIAN.shortDescription=YOUNIAN
+
+QINGSHAONIAN.value=QINGSHAONIAN
+QINGSHAONIAN.shortDescription=QINGSHAONIAN
+
+CHENGNIAN.value=CHENGNIAN
+CHENGNIAN.shortDescription=CHENGNIAN
+
+LAONIAN.value=LAONIAN
+LAONIAN.shortDescription=LAONIAN
+
+#########################################################
+INWORK.value=INWORK
+INWORK.shortDescription=INWORK
+
+BIANZHIZHONG.value=BIANZHIZHONG
+BIANZHIZHONG.shortDescription=BIANZHIZHONG
+
+UNDERREVIEW.value=UNDERREVIEW
+UNDERREVIEW.shortDescription=UNDERREVIEW
+
+UNDERREVIEW.value=UNDERREVIEW
+UNDERREVIEW.shortDescription=UNDERREVIEW
+
+RELEASED.value=RELEASED
+RELEASED.shortDescription=RELEASED
+
+YICHUANYUE.value=YICHUANYUE
+YICHUANYUE.shortDescription=YICHUANYUE
+
+CANCELLED.value=CANCELLED
+CANCELLED.shortDescription=CANCELLED
+
+#WIS正在审阅,WIS已发布,WIS已传阅,WIS已归档
+WISTIJIAOSHENYUE.value=WISTIJIAOSHENYUE
+WISTIJIAOSHENYUE.shortDescription=WISTIJIAOSHENYUE
+WISTIJIAOSHENYUE.order=8000
+
+WISZHENGZAISHENYUE.value=WISZHENGZAISHENYUE
+WISZHENGZAISHENYUE.shortDescription=WISZHENGZAISHENYUE
+WISZHENGZAISHENYUE.order=8001
+
+WISYIFABU.value=WISYIFABU
+WISYIFABU.shortDescription=WISYIFABU
+WISYIFABU.order=8002
+
+WISYICHUANYUE.value=WISYICHUANYUE
+WISYICHUANYUE.shortDescription=WISYICHUANYUE
+WISYICHUANYUE.order=8003
+
+WISYIGUIDANG.value=WISYIGUIDANG
+WISYIGUIDANG.shortDescription=WISYIGUIDANG
+WISYIGUIDANG.order=8004
+
+WISXIUGAIZHONG.value=WISXIUGAIZHONG
+WISXIUGAIZHONG.shortDescription=WISXIUGAIZHONG
+WISXIUGAIZHONG.order=8005
+
+WISYIQUXIAO.value=WISYIQUXIAO
+WISYIQUXIAO.shortDescription=WISYIQUXIAO
+WISYIQUXIAO.order=8006

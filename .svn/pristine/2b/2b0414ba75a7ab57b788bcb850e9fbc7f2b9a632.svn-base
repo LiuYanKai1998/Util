@@ -1,0 +1,9 @@
+CSV转为XML(Windchill根目录下执行)
+windchill wt.load.util.CSV2XML -input wis_groups.csv -root loadFiles/ext/wis/usergroup
+windchill wt.load.util.CSV2XML -input wis_groupGroup.csv -root loadFiles/ext/wis/usergroup
+windchill wt.load.util.CSV2XML -input wis_GroupUsers.csv -root loadFiles/ext/wis/usergroup
+windchill wt.load.util.CSV2XML -input wis_Users.csv -root loadFiles/ext/wis/usergroup
+
+导入XML，也可以直接导入csv(待验证),xml不容易出现乱码，排查数据格式也方便
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/usergroup/users20181220.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+

@@ -1,0 +1,88 @@
+一、部署代码包(以下步骤，文件修改后，如果包含中文字符，文件格式一定修改为UTF-8)
+1.备份系统OOTB文件
+2.建立目录${ wt.home }/deploy，将最新源代码包解压到此目录
+3.{wt_home}/site.xconf中追加 site.xconf_add内容
+4.进入Windchill shell，切换到${ wt.home }/deploy目录，执行  ant 
+5.ant -f codebase/MakeJar.xml
+--------------------------------------------------------------------
+二、注册客制化模型
+1.分别添加:
+	descendentRegistry.properties_add
+	modelRegistry.properties_add
+	里的内容到
+	${ wt.home }/codebase/descendentRegistry.properties
+	${ wt.home }/codebase/modelRegistry.properties
+2.导入数据库表:
+	进入Windchill shell，切换到${ wt.home }db/sql3目录,登录sqlplus,执行:
+	@wisModel.sql
+-------------------------------------------------------------------
+三、修改系统配置
+1.开启tomcat开发者模式
+	${ wt.home }\tomcat\conf\web.xml,修改development值为true
+2.重启Windchill服务	
+--------------------------------------------------------------------
+四、导入基础数据
+在Windchill shell中执行如下命令导入基础数据
+1.导入用户
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/usergroup/users20181220.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+2.导入组
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/usergroup/groups20181221.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/usergroup/groups20190107.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+3.导入组与组关系
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/usergroup/groupGroup20181221.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/usergroup/groupGroup20190107.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+4.导入组与用户关系
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/usergroup/groupUsers20181221.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/usergroup/groupUsers20190107.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+5.导入类型属性
+windchill wt.load.LoadFileSet -file loadFiles/ext/wis/typeloadSet.xml  -Unattended -NoServerStop -u wcadmin -p wcadmin
+6.导入任务表单模板
+进入站点-模板-任务表单模板,删除default模板
+windchill wt.load.LoadFromFile -d loadFiles/ext/wis/custTaskFormTemplates.xml -Unattended -NoServerStop -u wcadmin -p wcadmin
+7.导入工作流模板、生命周期模板、对象初始化规则
+windchill wt.load.LoadFileSet -file loadFiles/ext/wis/loadSet.xml  -Unattended -NoServerStop -u wcadmin -p wcadmin
+8.手动创建产品库模板,名称设置为"wis_产品库模板"(若更改名称,则需调整MPM创建产品库的接口),隐藏OOTB产品库模板，产品库模板文件位置为：loadFiles\ext\wis\产品库模板
+9.手动创建wis_文档模板存储库模板，隐藏OOTB存储库模板，文档模板存储库模板文件位置为：loadFiles\ext\wis\存储库模板
+创建存储库:文档模板库,创建子文件夹:office模板,DWG模板,上传创建office和dwg模板文档:位置loadFiles\ext\wis\文档模板库
+10.创建webservice通信用户:账号密码均为soapuser
+--------------------------------------------------------------------
+五、首选项配置:
+1、显示-工具栏操作说明-是
+2、"显示"-启用工具栏操作说明，启用工作区
+3、安全性-显示文件夹域-是
+4、找到"工作流"--"使用任务表单模板来生成任务详细信息页面"--设置为"是"；
+5、更改管理
+	与嵌入的变更任务一起显示更改通告，设置为"是"
+	不附有更改请求的更改通告,设置为"是"
+	更改实施状态定义,设置为"拟制"
+	默认更改任务名称,设置为"更改对象集"
+6、"结构"中选择排序顺序选择'自然排序顺序'
+7、找到"操作"--"上载操作"--"收集器"--"包含依存部件"，"包含相关绘图"的值设置为"全部"
+8、找到"操作"--"上载操作"--"上载"--"上载丢弃编号文件扩展名"--"是"
+9、找到"操作"--"上载操作"--"上载"--"上载丢弃名称文件扩展名"--"是"
+10、找到"操作"--"上载操作"--"编号参数"--"选择Catia V5，输入‘CAT:PART_NR’
+11、找到"操作"-"上载操作"--"命名参数"--"选择Catia V5，输入‘名称’
+12、找到"操作"--"检入操作"--"检入时自动关联"--设置为"是"
+13、找到"操作"--"检入操作"--"解析不完整对象"--设置为"是"
+14、找到"操作"--"检入操作"--"收集器"--"收集相关绘图"--设置为"全部"
+15、找到"操作"--"自动关联"--"自动关联操作中截断编号的文件扩展名"--"是"
+16、找到"操作"--"自动关联"--"自动关联操作中截断名称的文件扩展名"--"是"
+17、找到"修订"--"收集器"--"包含相关 CAD/动态文档"--设置为"全部"
+18、找到"修订"--"收集器"--"包含相关部件"--设置为"全部"
+19、找到"修订"--"收集器"--"包含相关绘图"--设置为"全部"
+20、找到"Workgroup Manager 客户端"--"上载相关的绘图"--"是"
+21、表格-大小限制,设置为10000
+---------------------------------------------------------------------
+六、界面布局配置:
+1、主页-公用选项卡,右侧自定义中选中"MPM系统任务",并调整页面显示顺序为MPM系统任务-任务
+2、更改通告详细信息页面,新建选项卡"更改对象清单",添加"受影响对象"和"产生的对象"两个表格,将该选项卡移到左边第一位并设置为"公用"。
+3、产品库文件夹列表,视图-全部-增加显示类型:技术文件及图类文档更改签审
+3、检查以下类型的布局
+	文档一级类型
+	设计文件-图类文件类型
+	技术状态管理文件-更改单
+	创建/编辑/查看布局逐一核对
+
+七、UGNX上载工程图创建绘图模型的方式：
+	1.确保首选项Workgroup Manager客户端中"绘图定义"值为：attribute
+	2.工程图文件中必须存在属性：PTC_WM_IS_DRAWING 类型为：String  值为：True

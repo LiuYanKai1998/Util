@@ -1,0 +1,5 @@
+	<!--builder扫描 -->
+	<mvc:builder-scan base-package="ext.wisplm"/>
+	<mvc:builder-scan base-package="ext.wis"/>
+	<!--controller扫描-->
+	<context:component-scan base-package = "ext"/>

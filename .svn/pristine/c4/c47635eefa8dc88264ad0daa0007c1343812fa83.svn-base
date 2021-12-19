@@ -1,0 +1,97 @@
+package ext.wis6.module.oid;
+
+import wt.fc.Persistable;
+import wt.fc.ReferenceFactory;
+import wt.fc.WTObject;
+import wt.fc.WTReference;
+import wt.doc.WTDocument;
+import wt.doc.WTDocumentMaster;
+import wt.util.WTException;
+import wt.vc.Iterated;
+import wt.vc.Mastered;
+import wt.vc.VersionReference;
+
+/**
+ *
+ *Zhong Binpeng Jun 4, 2021
+ */
+public class OidTransfer {
+
+	/**
+	 * 对象oid转换为持久层模型
+	 * @description
+	 * @param oid
+	 * @return
+	 * @throws WTException
+	 */
+	public static WTObject oidToObject(String oid) throws WTException{
+		ReferenceFactory rf = new ReferenceFactory();
+		WTReference wf      = rf.getReference(oid);
+		Persistable p       = wf.getObject();
+		WTDocument part         = (WTDocument) p;
+		return part;
+	}
+	
+	/**
+	 * 获取对象的or oid
+	 * @description
+	 * @param part
+	 * @return
+	 * @throws WTException
+	 */
+	public static String objectToOid(WTDocument part) throws WTException{
+		 Persistable p = part;
+		 String oid    = new ReferenceFactory().getReferenceString(p);
+		 return oid;
+	}
+	
+	/**
+	 * 获取当前对象vr oid
+	 * @description
+	 * @param iterated
+	 * @return
+	 * @throws WTException
+	 */
+	public static String objectToVrOid(Iterated iterated) throws WTException{
+		VersionReference vrf = VersionReference.newVersionReference(iterated);
+		String vrOid         = new ReferenceFactory().getReferenceString(vrf);
+		return vrOid;
+	}
+	
+	/**
+	 * 获取当前对象大版本对应的最新小版本
+	 * @description
+	 * @param part
+	 * @return
+	 * @throws WTException
+	 */
+	public static WTDocument getCurrentVersionLatest(WTDocument part) throws WTException{
+		String vrOid = objectToVrOid(part);
+		return (WTDocument) oidToObject(vrOid);
+	}
+	
+	public static void main(String[] args) throws WTException {
+		String oid = "OR:wt.doc.WTDocument:176297";
+		WTDocument doc = (WTDocument) oidToObject(oid);
+		
+		String number = doc.getNumber();
+		String name   = doc.getName();
+		
+		String displayInfo = doc.getDisplayIdentity().toString();
+		
+		System.out.println("对象oid转换为文档:" + displayInfo);
+		oid = objectToOid(doc);
+		System.out.println("文档对象转换为OR oid:" + oid);
+		oid = objectToVrOid(doc);
+		System.out.println("文档对象转换为VR oid:" + oid);
+		doc = getCurrentVersionLatest(doc);
+		displayInfo = doc.getDisplayIdentity().toString();
+		System.out.println("获取当前文档大版本对应的最新小版本:" + displayInfo);
+		System.out.println("文档编号:" + number);
+		System.out.println("文档名称:" + name);
+		//master和对象互转
+		WTDocumentMaster master = (WTDocumentMaster) doc.getMaster();
+		wt.vc.VersionControlHelper.service.allIterationsOf(master);
+	}
+
+}

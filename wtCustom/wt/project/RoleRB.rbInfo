@@ -1,0 +1,87 @@
+ResourceInfo.class=wt.tools.resource.EnumResourceInfo
+ResourceInfo.customizable=true
+ResourceInfo.deprecated=false
+
+# Entry Format (values equal to default value are not included)
+# <key>.value=
+# <key>.category=
+# <key>.comment=
+# <key>.argComment<n>=
+# <key>.constant=
+# <key>.customizable=
+# <key>.deprecated=
+# <key>.abbreviatedDisplay=
+# <key>.fullDisplay=
+# <key>.shortDescription=
+# <key>.longDescription=
+# <key>.order=
+# <key>.defaultValue=
+# <key>.selectable=
+
+# Entry Contents
+# custom Roles
+###########1、拷贝到服务器
+###########2、编译,shell中执行resourcebuild wt.project.RoleRB
+###########3、重新生成客户端jar包,shell中执行ant -f codebase/MakeJar.xml
+###########4、重启MethodServer
+###########5、清除客户端java和浏览器缓存
+
+FUMU.value=FUMU
+FUMU.shortDescription=FUMU
+FUMU.order=3001
+
+LAOSHI.value=LAOSHI
+LAOSHI.shortDescription=LAOSHI
+LAOSHI.order=3002
+
+LAOBAN.value=LAOBAN
+LAOBAN.shortDescription=LAOBAN
+LAOBAN.order=3003
+
+ZIJI.value=ZIJI
+ZIJI.shortDescription=ZIJI
+ZIJI.order=3004
+##################################
+JIAODUIZHE.value=JIAODUIZHE
+JIAODUIZHE.shortDescription=JIAODUIZHE
+JIAODUIZHE.order=3005
+
+SHENHEZHE.value=SHENHEZHE
+SHENHEZHE.shortDescription=SHENHEZHE
+SHENHEZHE.order=3006
+
+APPROVER.value=APPROVER
+APPROVER.shortDescription=APPROVER
+APPROVER.order=3007
+
+WISXITONGJIAGOUSHI.value=WISXITONGJIAGOUSHI
+WISXITONGJIAGOUSHI.shortDescription=WISXITONGJIAGOUSHI
+WISXITONGJIAGOUSHI.order=8001
+
+WISKAIFAGONGCHENGSHI.value=WISKAIFAGONGCHENGSHI
+WISKAIFAGONGCHENGSHI.shortDescription=WISKAIFAGONGCHENGSHI
+WISKAIFAGONGCHENGSHI.order=8002
+
+WISJIAODUIZHE.value=WISJIAODUIZHE
+WISJIAODUIZHE.shortDescription=WISJIAODUIZHE
+WISJIAODUIZHE.order=8003
+
+WISSHENHEZHE.value=WISSHENHEZHE
+WISSHENHEZHE.shortDescription=WISSHENHEZHE
+WISSHENHEZHE.order=8004
+
+WISSHENDINGZHE.value=WISSHENDINGZHE
+WISSHENDINGZHE.shortDescription=WISSHENDINGZHE
+WISSHENDINGZHE.order=8005
+
+WISPIZHUNZHE.value=WISPIZHUNZHE
+WISPIZHUNZHE.shortDescription=WISPIZHUNZHE
+WISPIZHUNZHE.order=8006
+
+WISHUIQIANZHE.value=WISHUIQIANZHE
+WISPIZHUNZHE.shortDescription=WISHUIQIANZHE
+WISPIZHUNZHE.order=8007
+
+WISJIEGOUSHEJISHI.value=WISJIEGOUSHEJISHI
+WISJIEGOUSHEJISHI.shortDescription=WISJIEGOUSHEJISHI
+WISJIEGOUSHEJISHI.order=8008

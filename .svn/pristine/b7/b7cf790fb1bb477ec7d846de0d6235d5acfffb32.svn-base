@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE NmLoader
+  SYSTEM "standardX24.dtd">
+<NmLoader>
+   <csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      <csvname>WIS</csvname>
+      <csvhierarchyDisplayName>WIS</csvhierarchyDisplayName>
+      <csvorganizerPaths></csvorganizerPaths>
+      <csvdefinitionPaths/>
+      <csvdisplay_name/>
+      <csvdescription/>
+      <csvdata_type>ORG</csvdata_type>
+      <csvQoMName/>
+      <csvnameValuePairs/>
+      <csvlogicalIdentifier/>
+   </csvAttrDefinizer>
+   <csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      <csvname>SIGNINFO</csvname>
+      <csvhierarchyDisplayName>签审信息</csvhierarchyDisplayName>
+      <csvorganizerPaths>WIS</csvorganizerPaths>
+      <csvdefinitionPaths/>
+      <csvdisplay_name>签审信息</csvdisplay_name>
+      <csvdescription>签审信息</csvdescription>
+      <csvdata_type>STR</csvdata_type>
+      <csvQoMName/>
+      <csvnameValuePairs/>
+      <csvlogicalIdentifier>SIGNINFO</csvlogicalIdentifier>
+   </csvAttrDefinizer>
+</NmLoader>

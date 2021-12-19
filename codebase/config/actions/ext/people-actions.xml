@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE listofactions SYSTEM "actions.dtd">
+<listofactions>
+
+	<objecttype name="operation"
+		resourceBundle="ext.wisplm.demo.resources.CustomOperationRB">
+		<action name="glow">
+			<command class="ext.sy601.fpcollaborative.processor.CreateDeliveryPlan" method="execute" url="netmarkets/jsp/ext/sy601/fpCollaborative/createDeliveryPlan.jsp" windowType="popup"/>
+           <!-- 该菜单适用的数据类型 -->
+            <supportedTypes>
+                <type value="wt.part.WTPart|com.wisplm.people"/>
+            </supportedTypes>
+		</action>
+	</objecttype>
+
+</listofactions>
+
+

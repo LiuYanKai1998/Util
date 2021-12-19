@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configuration
+  SYSTEM "xconf.dtd">
+<Configuration xmlns:xlink="http://www.w3.org/1999/xlink">
+   <!--add by Loong 20200402 远程调试-->        
+   <Property name="wt.manager.cmd.MethodServer.debug.args" overridable="true"
+            targetFile="codebase/wt.properties"
+            value="-agentlib:jdwp=transport=dt_socket,address=9999,server=y,suspend=n"/>
+   <!-- 配置过滤器 -->
+   <Service context="default" name="com.ptc.core.ui.validation.SimpleValidationFilter" targetFile="codebase/service.properties">
+   		<!-- 增加Option节点描述自定义的Filter类 -->
+   		<!-- 修改状态过滤器 -->
+   		<Option serviceClass="ext.wisplm.demo.part.filter.SetStateFilter" requestor="null" selector="SetStateFilter" cardinality="duplicate"/>
+  		<!-- 提交审阅过滤器 -->
+  		<Option serviceClass="ext.wisplm.demo.part.filter.SubmitFilter"  requestor="null"  selector="SubmitFilter" cardinality="duplicate"/>
+   </Service>
+   <!--客制化Datautility,添加后执行xconfmanager -p发布,重启MethodServer,然后在布局或者表格属性中引用,dataUtility ID设置为selector的值-->          
+   <Service context="default" name="com.ptc.core.components.descriptor.DataUtility" targetFile="codebase/wt.properties">
+		<Option serviceClass="ext.wisplm.demo.part.datautility.PartNameDataUtility" selector="PartNameDataUtility"  requestor="java.lang.Object" cardinality="duplicate"/>
+   </Service>
+</Configuration>
